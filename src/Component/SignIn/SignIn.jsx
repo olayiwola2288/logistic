@@ -36,7 +36,7 @@ const SignIn = () => {
     }, 500);
   }, []);
   return (
-    <div className="lg:mt-30 lg:mb-20 my-62">
+    <div className="lg:mt-30 lg:mb-20 mb-24 my-62">
       {loading ? (
         <div>
           <div className="flex items-center justify-center h-screen" disabled>
