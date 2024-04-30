@@ -18,7 +18,7 @@ const Head = () => {
           >
             Home
           </Navbar.Link>
-          <Navbar.Link href="about" className="text-black hover:text-black lg:hover:text-green-800 font-bold">
+          <Navbar.Link href="/about" className="text-black hover:text-black lg:hover:text-green-800 font-bold">
             About
           </Navbar.Link>
           <Navbar.Link href="contact" className="text-black hover:text-black lg:hover:text-green-800 font-bold">
