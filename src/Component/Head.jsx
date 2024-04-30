@@ -18,26 +18,49 @@ const Head = () => {
           >
             Home
           </Navbar.Link>
-          <Navbar.Link href="/about" className="text-black hover:text-black lg:hover:text-green-800 font-bold">
+          <Navbar.Link
+            href="/about"
+            // to="/about"
+            className="text-black hover:text-black lg:hover:text-green-800 font-bold"
+          >
             About
           </Navbar.Link>
-          <Navbar.Link href="contact" className="text-black hover:text-black lg:hover:text-green-800 font-bold">
-          Contact
+          <Navbar.Link
+            href="contact"
+            className="text-black hover:text-black lg:hover:text-green-800 font-bold"
+          >
+            Contact
           </Navbar.Link>
-          <Navbar.Link href="#" className="text-black hover:text-black lg:hover:text-green-800 font-bold">
+          <Navbar.Link
+            href="/faqs"
+            className="text-black hover:text-black lg:hover:text-green-800 font-bold"
+          >
             FAQS
           </Navbar.Link>
-          <Navbar.Link href="signin" className="text-black hover:text-black lg:hover:text-green-800 font-bold">
-          Order
+          <Navbar.Link
+            href="signin"
+            className="text-black hover:text-black lg:hover:text-green-800 font-bold"
+          >
+            Order
+          </Navbar.Link>
+          <Navbar.Link
+            href="signin"
+            className="text-black hover:text-black lg:hover:text-green-800 font-bold"
+          >
+            Price Checker
           </Navbar.Link>
           <div className="flex justify-center mt-10 lg:mt-0">
-            <Button className="mx-1 bg-green-700 hover:bg-green-800 lg:bg-white  hover:text-white lg:hover:bg-green-800 lg:text-black ">Sing-in</Button>
-            <Button className="mx-1  bg-green-700 hover:bg-green-800 lg:hover:bg-green-800 ">Sing-up</Button>
+            <Button className="mx-1 bg-green-700 hover:bg-green-800 lg:bg-white  hover:text-white lg:hover:bg-green-800 lg:text-black ">
+              Sing-in
+            </Button>
+            <Button className="mx-1  bg-green-700 hover:bg-green-800 lg:hover:bg-green-800 ">
+              Sing-up
+            </Button>
           </div>
         </Navbar.Collapse>
       </Navbar>
     </div>
   );
 };
- 
+
 export default Head;

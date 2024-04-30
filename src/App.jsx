@@ -6,7 +6,8 @@ import Form from "./Component/Form";
 // import Navbar from "./Component/Navbar";
 import Body from "./Component/Body";
 import SignIn from "./Component/SignIn/SignIn";
-import Head from "./Component/Head";
+import Head from "./Component/Head"
+import Faqs from "./Component/Faqs";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
           <Route path="signin" element={<SignIn />} />
           <Route path="/about" element={<About />} />
           <Route path="/form" element={<Form />} />
+          <Route path="/faqs" element={<Faqs />} />
           <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
         <Footer />

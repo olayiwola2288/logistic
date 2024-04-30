@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import {useState} from 'react'
 
 const Form = () => {
   const[Number,setNumber]=useState(0)
@@ -233,7 +233,7 @@ const Form = () => {
 
 <div className="container mx-auto mt-4">
 <h1 className="text-2xl font-semibold mb-4">LIST OF ORDER</h1>
-        <table class="min-w-full table-auto">
+        <table className="min-w-full table-auto">
             <tbody> <thead>
             <tr className="px-2  text-sm" >
               <th className="px-4 py-2 text-xs">S/N</th>
