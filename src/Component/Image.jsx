@@ -38,7 +38,7 @@ const Image = () => {
       <img
         src={img3}
         alt=""
-        className="lg:w-[250px] w-[100px] lg:-top-1/4 top-10 left-1/3 lg:left-2/3 lg:right-10 absolute "
+        className="lg:w-[250px] w-[20%] lg:-top-1/4 top-10 left-1/3 lg:left-2/3 lg:right-10 absolute "
         data-aos="zoom-in"
         data-aos-duration="1000"
       />

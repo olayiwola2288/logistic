@@ -88,7 +88,7 @@ const Body = () => {
               <img
                 src={img2}
                 alt=""
-                className="h-auto lg:max-w-lg transition-all duration-300 rounded-lg cursor-pointer "
+                className="h-auto lg:max-w-lg transition-all duration-300 rounded-lg cursor-pointer"
               />
             </div>
           </div>
