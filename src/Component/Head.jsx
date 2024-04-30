@@ -26,7 +26,7 @@ const Head = () => {
             About
           </Navbar.Link>
           <Navbar.Link
-            href="contact"
+            href="/contact"
             className="text-black hover:text-black lg:hover:text-green-800 font-bold"
           >
             Contact
@@ -38,13 +38,13 @@ const Head = () => {
             FAQS
           </Navbar.Link>
           <Navbar.Link
-            href="signin"
+            href="/signin"
             className="text-black hover:text-black lg:hover:text-green-800 font-bold"
           >
             Order
           </Navbar.Link>
           <Navbar.Link
-            href="signin"
+            href="/signin"
             className="text-black hover:text-black lg:hover:text-green-800 font-bold"
           >
             Price Checker
