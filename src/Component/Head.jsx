@@ -1,8 +1,9 @@
-import { Button, Navbar } from "flowbite-react";
+import {  Navbar } from "flowbite-react";
 // import { Link } from "react-router-dom";
 import img1 from "../assets/Viscio/logo.jpg";
 
 const Head = () => {
+
   return (
     <div className="fixed top-0 z-10 w-[100%]">
       <Navbar fluid rounded>
@@ -50,12 +51,19 @@ const Head = () => {
             Price Checker
           </Navbar.Link>
           <div className="flex justify-center mt-10 lg:mt-0">
-            <Button className="mx-1 bg-green-700 hover:bg-green-800 lg:bg-white  hover:text-white lg:hover:bg-green-800 lg:text-black ">
-              Sing-in
-            </Button>
-            <Button className="mx-1  bg-green-700 hover:bg-green-800 lg:hover:bg-green-800 ">
-              Sing-up
-            </Button>
+          <Navbar.Link
+            href="/signin"
+            className="mx-1 bg-green-700 text-white hover:bg-green-800 lg:bg-white  hover:text-white lg:hover:bg-green-800 lg:hover:text-white lg:text-black rounded lg:p-3 "
+          >
+           Sing-in
+          </Navbar.Link>
+          <Navbar.Link
+            href="/form"
+            className="mx-1 bg-green-700 text-white hover:bg-green-800 lg:bg-white  hover:text-white lg:hover:bg-green-800 lg:hover:text-white lg:text-black rounded lg:p-3 "
+          >
+            Sing-up
+          </Navbar.Link>
+
           </div>
         </Navbar.Collapse>
       </Navbar>

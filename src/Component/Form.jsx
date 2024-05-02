@@ -58,7 +58,7 @@ const Form = () => {
 
   return (
     < >
-      <div className='flex justify-center bg-green-500'>
+      <div className='flex justify-center bg-green-500 mt-48'>
      <div className='  class="block max-w-[18rem] rounded-lg bg-white text-left shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 m-2'>
      <h1 className="px-8 p-4 text-4*1 flex item-center justify-center py-4 rounded-md text-pink-500 font-bold font-weight: 700 text-xl font-size: 9.25rem;">{Number}</h1>
      <small className="px-8 p-4 text-4*1 flex item-center justify-center py-4 rounded-md">CREATED ORDER</small>
