@@ -55,13 +55,13 @@ const Head = () => {
             href="/signin"
             className="mx-1 bg-green-700 text-white hover:bg-green-800 lg:bg-white  hover:text-white lg:hover:bg-green-800 lg:hover:text-white lg:text-black rounded lg:p-3 "
           >
-           Sing-in
+           Log in
           </Navbar.Link>
           <Navbar.Link
-            href="/form"
-            className="mx-1 bg-green-700 text-white hover:bg-green-800 lg:bg-green-700  hover:text-white lg:hover:bg-green-800 lg:hover:text-white lg:text-black rounded lg:p-3 "
+            href="/get-started"
+            className="mx-1 bg-green-700 text-white hover:bg-green-800 lg:bg-green-700  hover:text-white lg:hover:bg-green-800 lg:hover:text-white lg:text-white rounded lg:p-3 "
           >
-            Sing-up
+            Get started 
           </Navbar.Link>
 
           </div>
