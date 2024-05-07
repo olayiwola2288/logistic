@@ -12,6 +12,12 @@ const Authentication = () => {
     },
     validate: (values) => {
       let errors = {};
+      if (formik.values.phoneNumber === "") {
+        errors.phoneNumber = "Required";
+      } else if (!/^\+?\d{1,3}[-.\s]?\(?\d{3}\)?[-.\s]?\d{3,4}[-.\s]?\d{4}$/.test(formik.values.phoneNumber)) {
+        errors.phoneNumber = "Invalid phone number format";
+      }
+      
       if (formik.values.password === "") {
         errors.password = "Require";
       } else if (
@@ -20,6 +26,12 @@ const Authentication = () => {
         )
       ) {
         errors.password = "not strong well";
+      }
+
+      if (formik.values.confirmPassword === "") {
+        errors.confirmPassword = "Required";
+      } else if (values.password !== values.confirmPassword) {
+        errors.confirmPassword = "Passwords do not match";
       }
       
       return errors;
@@ -49,7 +61,7 @@ const Authentication = () => {
           <form>
             <span className="shadow lg:px-5 py-6 px-10 bg-white rounded flex flex-col items-center justify-center">
               <div className="py-2">
-                <small>{formik.errors.firstName}</small>
+                <small className="text-red-500">{formik.errors.phoneNumber}</small>
                 <div className="py-2">
                   <input
                     type="number"
@@ -59,7 +71,7 @@ const Authentication = () => {
                     name="phoneNumber"
                   />
                 </div>
-                <small>{formik.errors.lastName}</small>
+                <small className="text-red-500">{formik.errors.password}</small>
                 <div className="py-2">
                   <input
                     type="password"
@@ -69,7 +81,7 @@ const Authentication = () => {
                     name="password"
                   />
                 </div>
-                <small>{formik.errors.email}</small>
+                <small className="text-red-500">{formik.errors.confirmPassword}</small>
                 <div className="py-2">
                   <input
                     type="password"
