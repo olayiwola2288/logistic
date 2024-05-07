@@ -1,9 +1,15 @@
-import {  Navbar } from "flowbite-react";
+import { Navbar, Button } from "flowbite-react";
 // import { Link } from "react-router-dom";
 import img1 from "../assets/Viscio/logo.jpg";
+import { useNavigate } from "react-router-dom";
 
 const Head = () => {
+  const navigate = useNavigate()
 
+  const handleNavigate = () => {
+    navigate("/signin")
+  }
+  
   return (
     <div className="fixed top-0 z-10 w-[100%]">
       <Navbar fluid rounded>
@@ -50,20 +56,13 @@ const Head = () => {
           >
             Price Checker
           </Navbar.Link>
-          <div className="flex justify-center mt-10 lg:mt-0">
-          <Navbar.Link
-            href="/signin"
-            className="mx-1 bg-green-700 text-white hover:bg-green-800 lg:bg-white  hover:text-white lg:hover:bg-green-800 lg:hover:text-white lg:text-black rounded lg:p-3 "
-          >
-           Log in
-          </Navbar.Link>
-          <Navbar.Link
-            href="/get-started"
-            className="mx-1 bg-green-700 text-white hover:bg-green-800 lg:bg-green-700  hover:text-white lg:hover:bg-green-800 lg:hover:text-white lg:text-white rounded lg:p-3 "
-          >
-            Get started 
-          </Navbar.Link>
-
+          <div className="flex justify-center gap-4 mt-10 lg:mt-0">
+          <Button outline gradientDuoTone="greenToBlue" onClick={()=>handleNavigate()}>
+            Log in
+            </Button>
+            <Button outline gradientDuoTone="greenToBlue">
+              Get started
+            </Button>
           </div>
         </Navbar.Collapse>
       </Navbar>

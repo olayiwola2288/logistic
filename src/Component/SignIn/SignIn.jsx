@@ -1,7 +1,11 @@
 // import * as yup from yup
 import { useFormik } from "formik";
-import { useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
+import {useNavigate} from "react-router-dom"
+// const About = lazy(() => import("./GetStarted"))
 const SignIn = () => {
+  const navigate = useNavigate();
+  // const history = useHistory();
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -27,6 +31,10 @@ const SignIn = () => {
       }
       return errors;
     },
+    onSubmit: () => {
+      // history.push("/dashboard" );
+      navigate("/form")
+    },
   });
 
   const [loading, setLoading] = useState(true);
@@ -45,7 +53,7 @@ const SignIn = () => {
         </div>
       ) : (
         <div className="flex flex-col items-center justify-center bg-white-500 mt-40 ">
-          <form action="">
+          <form  >
             <span className="shadow lg:px-5 py-6 px-10 bg-gray-200 rounded flex flex-col items-center justify-center">
               <div className="py-2">
                 <input
@@ -71,6 +79,7 @@ const SignIn = () => {
               <small>{formik.errors.password}</small>
               <div className="py-2">
                 <button
+                onClick={()=>formik.handleSubmit()}
                   type="submit"
                   className="bg-green-700 py-3 px-5 rounded text-white"
                 >

@@ -1,24 +1,28 @@
-// import * as yup from yup
+import * as yup from" yup"
 import { useFormik } from "formik";
 import { useEffect, useState } from "react";
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom"; 
+
 const SignIn = () => {
+  const history = useHistory();
+
   const formik = useFormik({
     initialValues: {
-        firstName:"",
-        lastName:"",
-        email:"",
+      firstName: "",
+      lastName: "",
+      email: "",
     },
-    validate: (values) => {
-      let errors = {};
-      if (formik.values.email === "") {
-        errors.email = "Require ";
-      } else if (
-        !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-      ) {
-        errors.email = "Invalid email address";
-      }
-      return errors;
+    validationSchema: yup.object({
+      firstName: yup.string().required("First name is required"),
+      lastName: yup.string().required("Last name is required"),
+      email: yup
+        .string()
+        .email("Invalid email address")
+        .required("Email is required"),
+    }),
+    onSubmit: () => {
+      // Navigate to sign-in page or perform any other action here
+      history.push("/signin"); // Change "/signin" to the path of your sign-in page
     },
   });
 
@@ -28,6 +32,7 @@ const SignIn = () => {
       setLoading(false);
     }, 500);
   }, []);
+
   return (
     <div className="lg:mt-30 lg:mb-20 mb-24 my-62">
       {loading ? (
@@ -38,7 +43,7 @@ const SignIn = () => {
         </div>
       ) : (
         <div className="flex flex-col items-center justify-center bg-white-500 mt-40 ">
-          <form action="">
+          <form onSubmit={formik.handleSubmit}>
             <span className="shadow lg:px-5 py-6 px-10 bg-[#ffffff] rounded flex flex-col items-center justify-center">
               <div className="py-2">
                 <input
@@ -46,8 +51,13 @@ const SignIn = () => {
                   className="border border-black rounded bg-[#f4f8fd] px-10 py-2"
                   placeholder="First name"
                   onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.firstName}
                   name="firstName"
                 />
+                {formik.touched.firstName && formik.errors.firstName ? (
+                  <small className="text-red-500">{formik.errors.firstName}</small>
+                ) : null}
               </div>
               <div className="py-2">
                 <input
@@ -55,8 +65,13 @@ const SignIn = () => {
                   className="border border-black rounded bg-[#f4f8fd] px-10 py-2"
                   placeholder="Last Name"
                   onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.lastName}
                   name="lastName"
                 />
+                {formik.touched.lastName && formik.errors.lastName ? (
+                  <small className="text-red-500">{formik.errors.lastName}</small>
+                ) : null}
               </div>
               <div className="py-2">
                 <input
@@ -64,20 +79,13 @@ const SignIn = () => {
                   className="border border-black rounded bg-[#f4f8fd] px-10 py-2"
                   placeholder="Email"
                   onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.email}
                   name="email"
                 />
-              </div>
-              <small>{formik.errors.email}</small>
-              <div className="py-2">
-                <input
-                  type="password"
-                  className="border border-black rounded bg-[#f4f8fd] px-10 py-2"
-                  placeholder="Note:-the password most have Minimum eight characters, at least one letter, one number and one special character:
-  
-                "
-                  onChange={formik.handleChange}
-                  name="password"
-                />
+                {formik.touched.email && formik.errors.email ? (
+                  <small className="text-red-500">{formik.errors.email}</small>
+                ) : null}
               </div>
 
               <div className="py-2">
