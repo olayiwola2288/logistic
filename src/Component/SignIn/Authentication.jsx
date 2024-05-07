@@ -2,40 +2,30 @@ import { useFormik } from "formik";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const GetStarted = () => {
+const Authentication = () => {
   const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
-      firstName: "",
-      lastName: "",
-      email: "",
+      phoneNumber: "",
+      password: "",
+      confirmPassword: "",
     },
     validate: (values) => {
       let errors = {};
-      if (formik.values.firstName === "") {
-        errors.firstName = "Required";
-      } else if (!/^[A-Za-z]+$/.test(values.firstName)) {
-        errors.firstName = "Invalid";
-      }
-
-      if (formik.values.lastName === "") {
-        errors.lastName = "Required";
-      } else if (!/^[A-Za-z]+$/.test(values.lastName)) {
-        errors.lastName = "Invalid";
-      }
-
-      if (values.email === "") {
-        errors.email = "Required";
+      if (formik.values.password === "") {
+        errors.password = "Require";
       } else if (
-        !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+        !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d])[A-Za-z\d\W\S]{8,}$/i.test(
+          values.password
+        )
       ) {
-        errors.email = "Invalid email address";
+        errors.password = "not strong well";
       }
-
+      
       return errors;
     },
     onSubmit: () => {
-      navigate("/authentication");
+      navigate("/form");
     },
   });
 
@@ -62,31 +52,31 @@ const GetStarted = () => {
                 <small>{formik.errors.firstName}</small>
                 <div className="py-2">
                   <input
-                    type="text"
+                    type="number"
                     className="border border-black rounded bg-[#f1f6f7] px-10 py-2"
-                    placeholder="First Name"
+                    placeholder="Your phone number"
                     onChange={formik.handleChange}
-                    name="firstName"
+                    name="phoneNumber"
                   />
                 </div>
                 <small>{formik.errors.lastName}</small>
                 <div className="py-2">
                   <input
-                    type="text"
+                    type="password"
                     className="border border-black rounded bg-[#f1f6f7] px-10 py-2"
-                    placeholder="Last Name"
+                    placeholder="Create password"
                     onChange={formik.handleChange}
-                    name="lastName"
+                    name="password"
                   />
                 </div>
                 <small>{formik.errors.email}</small>
                 <div className="py-2">
                   <input
-                    type="email"
+                    type="password"
                     className="border border-black rounded bg-[#f1f6f7] px-10 py-2"
-                    placeholder="Email"
+                    placeholder="confirm password"
                     onChange={formik.handleChange}
-                    name="email"
+                    name="confirmPassword"
                   />
                 </div>
 
@@ -106,6 +96,6 @@ const GetStarted = () => {
       )}
     </div>
   );
-};
+}
 
-export default GetStarted;
+export default Authentication

@@ -4,12 +4,14 @@ import img1 from "../assets/Viscio/logo.jpg";
 import { useNavigate } from "react-router-dom";
 
 const Head = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleNavigate = () => {
-    navigate("/signin")
-  }
-  
+    navigate("/signin");
+  };
+  const handleNavigation1 = () => {
+    navigate("/get-started");
+  };
   return (
     <div className="fixed top-0 z-10 w-[100%]">
       <Navbar fluid rounded>
@@ -57,10 +59,18 @@ const Head = () => {
             Price Checker
           </Navbar.Link>
           <div className="flex justify-center gap-4 mt-10 lg:mt-0">
-          <Button outline gradientDuoTone="greenToBlue" onClick={()=>handleNavigate()}>
-            Log in
+            <Button
+              outline
+              gradientDuoTone="greenToBlue"
+              onClick={() => handleNavigate()}
+            >
+              Log in
             </Button>
-            <Button outline gradientDuoTone="greenToBlue">
+            <Button
+              outline
+              gradientDuoTone="greenToBlue"
+              onClick={() => handleNavigation1()}
+            >
               Get started
             </Button>
           </div>

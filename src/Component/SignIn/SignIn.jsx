@@ -5,7 +5,6 @@ import {useNavigate} from "react-router-dom"
 // const About = lazy(() => import("./GetStarted"))
 const SignIn = () => {
   const navigate = useNavigate();
-  // const history = useHistory();
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -54,7 +53,7 @@ const SignIn = () => {
       ) : (
         <div className="flex flex-col items-center justify-center bg-white-500 mt-40 ">
           <form  >
-            <span className="shadow lg:px-5 py-6 px-10 bg-gray-200 rounded flex flex-col items-center justify-center">
+            <span className="shadow lg:px-5 py-6 px-10 bg-white rounded flex flex-col items-center justify-center">
               <div className="py-2">
                 <input
                   type="email"
