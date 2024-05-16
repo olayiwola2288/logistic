@@ -47,7 +47,7 @@ const Contact = () => {
   }, []);
 
   return (
-    <div className="mt-40">
+    <div>
       {loading ? (
         <div>
           <div className="flex items-center justify-center h-screen" disabled>
@@ -55,7 +55,7 @@ const Contact = () => {
           </div>
         </div>
       ) : (
-        <div>
+        <div className=" mt-40">
           <h1 className="text-center text-green-800  mb-10 text-4xl">
             Contact Us
           </h1>

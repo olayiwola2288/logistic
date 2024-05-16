@@ -29,7 +29,7 @@ const Faqs = () => {
   }, []);
 
   return (
-    <div className="mt-40">
+    <div>
       {loading ? (
         <div>
           <div className="flex items-center justify-center h-screen" disabled>
@@ -37,7 +37,7 @@ const Faqs = () => {
           </div>
         </div>
       ) : (
-        <div>
+        <div className=" mt-40">
           <FaqItem
             question="What Is Serenity?"
             answer="Serenity express practically leverages on the domain strengths of various logistics agents and niche courier companies across Africa. With the simple convenience of a smartphone, we have smartly eliminated traditional logistics operations barriers that make movement of goods from one point to another in Africa seem like rocket science. Our operational model, harmonized with our deployed technology tools enables us to seamlessly address your logistics needs affordably, reliably and with utmost peace of mind."

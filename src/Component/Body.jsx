@@ -23,7 +23,7 @@ const Body = () => {
   }, []);
 
   return (
-    <div className="mt-40">
+    <div>
       {loading ? (
         <div>
           <div className="flex items-center justify-center h-screen" disabled>

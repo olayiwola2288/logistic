@@ -25,7 +25,7 @@ const About = () => {
   }, []);
 
   return (
-    <div className="mt-40">
+    <div>
       {loading ? (
         <div>
           <div className="flex items-center justify-center h-screen" disabled>
@@ -34,7 +34,7 @@ const About = () => {
         </div>
       ) : (
         <>
-          <div className="flex flex-col sm:flex-row gap-10 mx-2 p-5 min-h-70 mt-32">
+          <div className="flex flex-col sm:flex-row gap-10 mx-2 p-5 min-h-70 mt-40">
             <div className="w-full sm:w-1/2 my-5 ">
               <img src={image1} style={{ width: "550px", marginTop: "15%" }} />
             </div>
