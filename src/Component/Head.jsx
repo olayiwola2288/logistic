@@ -47,7 +47,7 @@ const Head = () => {
             FAQS
           </Navbar.Link>
           <Navbar.Link
-            href="/form"
+            href="/order"
             className="text-black hover:text-black lg:hover:text-green-800 font-bold"
           >
             Order
