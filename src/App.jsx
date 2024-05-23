@@ -1,17 +1,17 @@
 import { Route, Routes } from "react-router-dom";
+import Head from "./Component/Head"
 import About from "./Component/About";
 import Footer from "./Component/Footer";
-import Dashboard from "./Component/Dashboard";
-import Form from "./Component/Form";
-// import Navbar from "./Component/Navbar";
-import Body from "./Component/Body";
+// import Dashboard from "./Component/Dashboard";
 import SignIn from "./Component/SignIn/SignIn";
-import Head from "./Component/Head"
+import Form from "./Component/Form";
+import Body from "./Component/Body";
 import Faqs from "./Component/Faqs";
 import Order from "./Component/Order"
 import Contact from "./Component/Contact";
 import GetStarted from "./Component/SignIn/GetStarted"
 import Authentication from "./Component/SignIn/Authentication";
+import Maine from "./Dashboard/Maine"
 
 
 const App = () => {
@@ -30,7 +30,7 @@ const App = () => {
           <Route path="/authentication" element={<Authentication />} />
           <Route path="/faqs" element={<Faqs />} />
           <Route path="/order" element={<Order />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard" element={< Maine />} />
         </Routes>
         <Footer />
       </div>

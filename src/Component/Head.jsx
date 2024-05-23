@@ -29,7 +29,6 @@ const Head = () => {
           </Navbar.Link>
           <Navbar.Link
             href="/about"
-            // to="/about"
             className="text-black hover:text-black lg:hover:text-green-800 font-bold"
           >
             About
@@ -53,12 +52,12 @@ const Head = () => {
             Order
           </Navbar.Link>
           <Navbar.Link
-            href="/signin"
+            href="/dashboard"
             className="text-black hover:text-black lg:hover:text-green-800 font-bold"
           >
             Price Checker
           </Navbar.Link>
-          <div className="flex justify-center gap-4 mt-10 lg:mt-0">
+          <div className="flex justify-center gap-4 mt-10 md:mt-0 lg:mt-0">
             <Button
               outline
               gradientDuoTone="greenToBlue"

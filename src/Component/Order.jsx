@@ -81,22 +81,22 @@ const Order = () => {
           </div>
         </div>
       ) : (
-        <table className=" w-[80%] table mt-40 mx-auto">
-          <thead className="bg-green-800 text-white py-4 mb-5 rounded">
+        <table className=" w-[90%] lg:w-[80%] mb-20 table mt-36 mx-auto border-separate border-spacing-y-5">
+          <thead className="bg-green-800 text-white py-9 rounded">
             <tr>
-              <th className="px-4">Pick Up Address</th>
-              <th className="px-4">Drop Off Address</th>
-              <th className="px-4">Delivery Mode</th>
-              <th className="px-4">Item</th>
+              <th className=" px-2 lg:px-4">Pick Up Address</th>
+              <th className=" px-2 lg:px-4">Drop Off Address</th>
+              <th className=" px-2 lg:px-4">Delivery Mode</th>
+              <th className=" px-2 lg:px-4">Item</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody> 
           {OrderList.map((item, index) =>(
-              <tr key={index} className=" shadow">
-              <td className="px-4">{item.PickUpAddress}</td>
-              <td className="px-4">{item.DropOffAddress}</td>
-              <td className="px-4">{item.DeliveryMode}</td>
-              <td className="px-4">{item.Item}</td>
+              <tr key={index} className="h-[100px] max-h-[100px] orderGrid rounded shadow">
+              <td className=" px-2 lg:px-4">{item.PickUpAddress}</td>
+              <td className=" px-2 lg:px-4">{item.DropOffAddress}</td>
+              <td className=" px-2 lg:px-4">{item.DeliveryMode}</td>
+              <td className=" px-2 lg:px-4">{item.Item}</td>
             </tr>
           ))}
             </tbody>
