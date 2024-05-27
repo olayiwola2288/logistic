@@ -52,7 +52,7 @@ const Head = () => {
             Order
           </Navbar.Link>
           <Navbar.Link
-            href="/dashboard"
+            href="https://serenity-logistics-dashboard.vercel.app/"
             className="text-black hover:text-black lg:hover:text-green-800 font-bold"
           >
             Price Checker
