@@ -37,7 +37,7 @@ const Authentication = () => {
       return errors;
     },
     onSubmit: () => {
-      navigate("/form");
+      navigate("/dashboard");
     },
   });
 

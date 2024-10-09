@@ -1,96 +1,141 @@
 import { Sidebar } from "flowbite-react";
-import { useState } from "react";
-import {
-  HiArrowSmRight,
-  HiChartPie,
-  HiInbox,
-  HiShoppingBag,
-  HiTable,
-  HiUser,
-  HiOutlineArrowNarrowRight,
-} from "react-icons/hi";
-import { TiTimesOutline } from "react-icons/ti";
+import { useState, useEffect } from "react";
+import img1 from "../../public/logo-removebg-preview.png";
+import { HiOutlineArrowNarrowRight } from "react-icons/hi";
+import { FiAlignJustify } from "react-icons/fi";
+import { ImUserPlus, ImUser } from "react-icons/im";
+import { FaWallet } from "react-icons/fa";
+import { ImBubble2 } from "react-icons/im";
+import { CgMediaLive } from "react-icons/cg";
+import { CiDeliveryTruck } from "react-icons/ci";
+import Card from "../Dashboard/Card";
 
 const Maine = () => {
   const [visible, setVisible] = useState(true);
 
+  useEffect(() => {
+    const screenWidth = window.innerWidth;
+    if (screenWidth < 1024) {
+      setVisible(false);
+    } else {
+      setVisible(true);
+    }
+
+    const handleResize = () => {
+      const newScreenWidth = window.innerWidth;
+      if (newScreenWidth < 1024) {
+        setVisible(false);
+      } else {
+        setVisible(true);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const handleToggle = () => {
     setVisible(!visible);
   };
+
   return (
-    <div className=" mb-24">
-      <button
-        onClick={handleToggle}
-        className=" text-green-700 hover:text-green-600 mt-4 fixed right-[150px] lg:right-[1145px]"
-      >
-        <TiTimesOutline />
-      </button>
+    <div className=" lg:flex">
+      <div className="flex justify-between px-8 py-2 bg-green-800 lg:bg-white lg:py-0 lg:px-0">
+        <img src={img1} alt="" className=" w-[20%] lg:hidden" />
+        <button
+          onClick={handleToggle}
+          className=" text-white hover:text-green-600  lg:hidden"
+        >
+          <FiAlignJustify className=" text-2xl" />
+        </button>
+      </div>
       {visible && (
-        <Sidebar className=" sidebar h-screen w-64 mt-24">
+        <Sidebar className=" sidebar h-screen w-64">
           <div className=" bg-green-800 h-full overflow-y-auto overflow-x-hidden rounded px-3 py-4">
             <Sidebar.Items className="">
               <Sidebar.ItemGroup className=" ">
+                <img src={img1} alt="" className=" hidden lg:block" />
                 <Sidebar.Item
                   href="#"
                   className=" text-white hover:text-green-700"
                 >
-                  <div className=" flex gap-5">
-                    <p className=" text-3xl"> <HiChartPie /></p>
-                    <p >Dashboard </p>
+                  <div className=" flex gap-5 my-4">
+                    <p className=" text-3xl">
+                      {" "}
+                      <CiDeliveryTruck />
+                    </p>
+                    <p> Order </p>
                   </div>
                 </Sidebar.Item>
+
                 <Sidebar.Item
                   href="#"
                   className=" text-white hover:text-green-700"
                 >
-                  <div className=" flex gap-5">
-                     <p className=" text-3xl"><HiInbox /></p>
-                    <p > Inbox </p>
+                  <div className=" flex gap-5 my-4">
+                    <p className=" text-2xl">
+                      <ImBubble2 />
+                    </p>
+                    <p> Chat </p>
+                  </div>
+                </Sidebar.Item>
+
+                <Sidebar.Item
+                  href="#"
+                  className="text-white hover:text-green-700"
+                >
+                  <div className=" flex gap-5 my-4">
+                    <p className=" text-2xl">
+                      <CgMediaLive />
+                    </p>
+                    <p>Pricing </p>
                   </div>
                 </Sidebar.Item>
                 <Sidebar.Item
                   href="#"
                   className="text-white hover:text-green-700"
                 >
-                  <div className=" flex gap-5">
-                    <p className=" text-3xl"><HiUser /></p>
-                    <p > Users </p>
+                  <div className=" flex gap-5 my-4 ">
+                    <p className=" text-2xl">
+                      <FaWallet />
+                    </p>
+                    <p> Wallet </p>
                   </div>
                 </Sidebar.Item>
                 <Sidebar.Item
                   href="#"
                   className="text-white hover:text-green-700"
                 >
-                  <div className=" flex gap-5 ">
-                   <p className=" text-3xl"><HiShoppingBag /></p>
-                    <p > Products </p>
+                  <div className=" flex gap-5 my-4">
+                    <p className=" text-2xl">
+                      <ImUserPlus />
+                    </p>
+                    <p> Referral </p>
                   </div>
                 </Sidebar.Item>
+
                 <Sidebar.Item
                   href="#"
                   className="text-white hover:text-green-700"
                 >
-                  <div className=" flex gap-5">
-                    <p className=" text-3xl"><HiArrowSmRight /></p>
-                    <p > Sign In </p>
+                  <div className=" flex gap-5 my-4">
+                    <p className=" text-2xl">
+                      <ImUser />
+                    </p>
+                    <p> Profile</p>
                   </div>
                 </Sidebar.Item>
+
                 <Sidebar.Item
-                  href="#"
-                  className="text-white hover:text-green-700"
-                >
-                  <div className=" flex gap-5">
-                    <p className=" text-3xl"><HiTable /></p>
-                    <p> Sign Up </p>
-                  </div>
-                </Sidebar.Item>
-                <Sidebar.Item
-                  href="/"
+                  href="https://logistic-azure.vercel.app/"
                   className="text-green-900 hover:text-green-700 text-center mt-11 bg-gray-50"
                 >
                   <div className=" flex gap-5 ">
                     <HiOutlineArrowNarrowRight />
-                    <p > Logout </p>
+                    <p> Logout </p>
                   </div>
                 </Sidebar.Item>
               </Sidebar.ItemGroup>
@@ -98,6 +143,7 @@ const Maine = () => {
           </div>
         </Sidebar>
       )}
+      <Card />
     </div>
   );
 };

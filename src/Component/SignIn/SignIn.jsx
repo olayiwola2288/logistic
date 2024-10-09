@@ -32,7 +32,7 @@ const SignIn = () => {
     },
     onSubmit: () => {
       // history.push("/dashboard" );
-      navigate("/form")
+      navigate("/dashboard")
     },
   });
 
