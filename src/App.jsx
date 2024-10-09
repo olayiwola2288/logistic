@@ -13,6 +13,7 @@ import GetStarted from "./Component/SignIn/GetStarted";
 import Authentication from "./Component/SignIn/Authentication";
 import Maine from "./Dashboard/Maine";
 import MainLayout from "./layouts/MainLayout";
+import ForgetPassowrd from "./Component/SignIn/ForgetPassowrd";
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
             <Route path="/authentication" element={<Authentication />} />
             <Route path="/faqs" element={<Faqs />} />
             <Route path="/order" element={<Order />} />
+            <Route path="forget" element={<ForgetPassowrd />} />
           </Route>
 
           <Route path="/dashboard" element={<Maine />} />

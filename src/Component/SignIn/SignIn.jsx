@@ -1,8 +1,6 @@
-// import * as yup from yup
 import { useFormik } from "formik";
 import {  useEffect, useState } from "react";
 import {useNavigate} from "react-router-dom"
-// const About = lazy(() => import("./GetStarted"))
 const SignIn = () => {
   const navigate = useNavigate();
   const formik = useFormik({
@@ -31,7 +29,6 @@ const SignIn = () => {
       return errors;
     },
     onSubmit: () => {
-      // history.push("/dashboard" );
       navigate("/dashboard")
     },
   });
