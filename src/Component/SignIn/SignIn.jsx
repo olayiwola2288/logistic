@@ -86,6 +86,9 @@ const SignIn = () => {
                 </button>
               </div>
             </span>
+            <button>
+                <small>Forget password </small>
+              </button>
           </form>
         </div>
       )}
