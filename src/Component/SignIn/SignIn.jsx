@@ -1,6 +1,6 @@
 import { useFormik } from "formik";
-import {  useEffect, useState } from "react";
-import {useNavigate} from "react-router-dom"
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 const SignIn = () => {
   const navigate = useNavigate();
   const formik = useFormik({
@@ -29,9 +29,12 @@ const SignIn = () => {
       return errors;
     },
     onSubmit: () => {
-      navigate("/dashboard")
+      navigate("/dashboard");
     },
   });
+  const handleForgetPassword = () => {
+    navigate("/forget");
+  };
 
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -49,7 +52,7 @@ const SignIn = () => {
         </div>
       ) : (
         <div className="flex flex-col items-center justify-center bg-white-500 mt-40 ">
-          <form  >
+          <form>
             <span className="shadow lg:px-5 py-6 px-10 bg-white rounded flex flex-col items-center justify-center">
               <div className="py-2">
                 <input
@@ -75,7 +78,7 @@ const SignIn = () => {
               <small>{formik.errors.password}</small>
               <div className="py-2">
                 <button
-                onClick={()=>formik.handleSubmit()}
+                  onClick={() => formik.handleSubmit()}
                   type="submit"
                   className="bg-green-700 py-3 px-5 rounded text-white"
                 >
@@ -83,9 +86,9 @@ const SignIn = () => {
                 </button>
               </div>
             </span>
-            <button>
-                <small>Forget password </small>
-              </button>
+            <button className="pt-2" onClick={handleForgetPassword}>
+              <small>Forget password </small>
+            </button>
           </form>
         </div>
       )}
