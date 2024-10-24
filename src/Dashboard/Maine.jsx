@@ -9,10 +9,21 @@ import { ImBubble2 } from "react-icons/im";
 import { CgMediaLive } from "react-icons/cg";
 import { CiDeliveryTruck } from "react-icons/ci";
 import Card from "../Dashboard/Card";
+import axiosInstance from "../../axiosInstance";
 
 const Maine = () => {
   const [visible, setVisible] = useState(true);
 
+  useEffect(() => {
+    axiosInstance
+      .get("users/me")
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
   useEffect(() => {
     const screenWidth = window.innerWidth;
     if (screenWidth < 1024) {

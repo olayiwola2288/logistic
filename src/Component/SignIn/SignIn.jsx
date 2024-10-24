@@ -1,8 +1,10 @@
 import { useFormik } from "formik";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axiosInstance from "../../../axiosInstance";
 const SignIn = () => {
   const navigate = useNavigate();
+  const [islogIn, setIsLogIn] = useState(false);
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -28,13 +30,24 @@ const SignIn = () => {
       }
       return errors;
     },
-    onSubmit: () => {
-      navigate("/dashboard");
+    onSubmit: async (values) => {
+      setIsLogIn(true);
+      const result = await axiosInstance.post("/users/signin", values);
+      console.log(result);
+      if (result.status === 200) {
+        formik.resetForm();
+        setIsLogIn(false);
+        navigate("/dashboard");
+        localStorage.setItem("token", result.data.token);
+      } else {
+        alert("Invalid email or password");
+        setIsLogIn(false);
+      }
     },
   });
-  const handleForgetPassword = () => {
-    navigate("/forget");
-  };
+  // const handleForgetPassword = () => {
+  //   navigate("/forget");
+  // };
 
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -52,7 +65,7 @@ const SignIn = () => {
         </div>
       ) : (
         <div className="flex flex-col items-center justify-center bg-white-500 mt-40 ">
-          <form>
+          <form onSubmit={formik.handleSubmit}>
             <span className="shadow lg:px-5 py-6 px-10 bg-white rounded flex flex-col items-center justify-center">
               <div className="py-2">
                 <input
@@ -60,6 +73,7 @@ const SignIn = () => {
                   className="border border-black rounded bg-white-200 px-10 py-2"
                   placeholder="Email"
                   onChange={formik.handleChange}
+                  value={formik.values.email}
                   name="email"
                 />
               </div>
@@ -72,21 +86,22 @@ const SignIn = () => {
   
                 "
                   onChange={formik.handleChange}
+                  value={formik.values.password}
                   name="password"
                 />
               </div>
               <small>{formik.errors.password}</small>
               <div className="py-2">
                 <button
-                  onClick={() => formik.handleSubmit()}
                   type="submit"
                   className="bg-green-700 py-3 px-5 rounded text-white"
+                  disabled={islogIn}
                 >
-                  Submit
+                  {islogIn ? "log in....." : "log in"}
                 </button>
               </div>
             </span>
-            <button className="pt-2" onClick={handleForgetPassword}>
+            <button className="pt-2">
               <small>Forget password </small>
             </button>
           </form>
