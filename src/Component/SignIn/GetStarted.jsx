@@ -65,9 +65,6 @@ const GetStarted = () => {
       return errors;
     },
     onSubmit: async (values) => {
-      // navigate("/authentication");
-      // e.preventDefault()
-      // return console.log(values)
       values.role = "";
       setIsRegistering(true);
       const result = await axiosInstance.post("users/signup", values);

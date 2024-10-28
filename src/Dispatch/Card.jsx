@@ -1,19 +1,17 @@
 import { useEffect, useState } from "react";
-import ShowOrder from "../Dashboard/ShowOrder";
 import axiosInstance from "../../axiosInstance";
 import Order from "./Order";
 
 const Card = () => {
   const [orders, setOrders] = useState([]);
-  const [deliveredOrders, setDeliveredOrders] = useState([]);
-  const [acceptedOrders, setAcceptedOrders] = useState([]);
+  const [completedOrders, setCompletedOrders] = useState([]);
   useEffect(() => {
     axiosInstance
-      .get("/orders/my-orders")
+      .get("/orders/")
       .then((response) => {
         console.log(response.data);
         // orders = [response.data]
-        setOrders(response.data.data);
+        setOrders(response.data);
       })
       .catch((error) => {
         console.error(error);
@@ -21,12 +19,10 @@ const Card = () => {
   }, []);
 
   useEffect(() => {
-    setDeliveredOrders(
-      orders.filter((order) => order.delivered === true).length
-    );
-    setAcceptedOrders(
-      orders.filter((order) => order.delivered === true && order.received === true)
-        .length
+    setCompletedOrders(
+      orders.filter(
+        (order) => order.confirmedByUser === true && order.dispatched
+      ).length
     );
   }, [orders]);
 
@@ -41,14 +37,12 @@ const Card = () => {
           <p className=" text-sm">Created Order</p>
         </div>
         <div className=" shadow rounded w-40 lg:w-80 lg:h-32 h-28 text-center py-5">
-          <h1 className=" text-[#0BCE83] text-4xl font-bold">
-            {deliveredOrders}
-          </h1>
+          <h1 className=" text-[#0BCE83] text-4xl font-bold">0</h1>
           <p className=" text-sm">Accepted Order</p>
         </div>
         <div className=" shadow rounded w-40 lg:w-80 lg:h-32 h-28 text-center me-5 py-5 ">
           <h1 className=" text-[#001B87] text-4xl font-bold">
-            {acceptedOrders   }
+            {completedOrders}
           </h1>
           <p className=" text-sm">Completed Order</p>
         </div>
@@ -70,8 +64,6 @@ const Card = () => {
             ))
           : "No Orders Available"}
       </div>
-
-      <ShowOrder />
     </div>
   );
 };

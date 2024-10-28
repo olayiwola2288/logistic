@@ -32,8 +32,10 @@ const SignIn = () => {
     },
     onSubmit: async (values) => {
       setIsLogIn(true);
-      const result = await axiosInstance.post("/users/signin", values);
-      console.log(result);
+      const result = await axiosInstance
+        .post("/users/signin", values)
+        .catch((err) => alert(err.message || "Invalid Email or Password"));
+
       if (result.status === 200) {
         formik.resetForm();
         setIsLogIn(false);

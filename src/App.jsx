@@ -14,6 +14,7 @@ import Authentication from "./Component/SignIn/Authentication";
 import Maine from "./Dashboard/Maine";
 import MainLayout from "./layouts/MainLayout";
 import ForgetPassowrd from "./Component/SignIn/ForgetPassowrd";
+import Dispatch from "./Dispatch/Dispatch";
 
 const App = () => {
   return (
@@ -35,11 +36,11 @@ const App = () => {
           </Route>
 
           <Route path="/dashboard" element={<Maine />} />
+          <Route path="/dispatch" element={<Dispatch />} />
         </Routes>
       </div>
     </>
   );
 };
-
 
 export default App;
