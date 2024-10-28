@@ -67,7 +67,13 @@ const GetStarted = () => {
     onSubmit: async (values) => {
       values.role = "";
       setIsRegistering(true);
-      const result = await axiosInstance.post("users/signup", values);
+      const result = await axiosInstance
+        .post("users/signup", values)
+        .catch((err) => {
+          console.log(err);
+          alert("Failed to Create User");
+          setIsRegistering(false);
+        });
 
       console.log(result);
 

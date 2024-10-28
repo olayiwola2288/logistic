@@ -15,6 +15,8 @@ import Maine from "./Dashboard/Maine";
 import MainLayout from "./layouts/MainLayout";
 import ForgetPassowrd from "./Component/SignIn/ForgetPassowrd";
 import Dispatch from "./Dispatch/Dispatch";
+import Admin from "./Admin/Admin";
+// import ProtectedLayout from "./layouts/ProtectedLayout";
 
 const App = () => {
   return (
@@ -35,8 +37,11 @@ const App = () => {
             <Route path="/forget" element={<ForgetPassowrd />} />
           </Route>
 
-          <Route path="/dashboard" element={<Maine />} />
-          <Route path="/dispatch" element={<Dispatch />} />
+          {/* <Route path="/" element={<ProtectedLayout />}> */}
+            <Route path="/user/dashboard" element={<Maine />} />
+            <Route path="/dispatch/dashboard" element={<Dispatch />} />
+            <Route path="/admin/dashboard" element={<Admin />} />
+          {/* </Route> */}
         </Routes>
       </div>
     </>

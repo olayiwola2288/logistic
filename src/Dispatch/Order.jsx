@@ -13,6 +13,7 @@ const Order = ({ order }) => {
       });
       console.log(result);
       alert("Order confirmed successfully");
+      window.location.href="/dispatch/dashboard"
     } catch (err) {
       console.log(err);
       alert("Failed to confirm order");

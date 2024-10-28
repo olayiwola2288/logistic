@@ -5,24 +5,31 @@ import Order from "./Order";
 const Card = () => {
   const [orders, setOrders] = useState([]);
   const [completedOrders, setCompletedOrders] = useState([]);
+  const [deliveredOrders, setDeliveredOrders] = useState([]);
+  const [isGettingOrders, setIsGettingOrders] = useState(false);
   useEffect(() => {
+    setIsGettingOrders(true);
     axiosInstance
       .get("/orders/")
       .then((response) => {
         console.log(response.data);
         // orders = [response.data]
         setOrders(response.data);
+        setIsGettingOrders(false);
       })
       .catch((error) => {
         console.error(error);
+        setIsGettingOrders(false);
       });
   }, []);
 
   useEffect(() => {
     setCompletedOrders(
-      orders.filter(
-        (order) => order.confirmedByUser === true && order.dispatched
-      ).length
+      orders.filter((order) => order.received === true && order.delivered)
+        .length
+    );
+    setDeliveredOrders(
+      orders.filter((order) => order.delivered === true).length
     );
   }, [orders]);
 
@@ -37,8 +44,10 @@ const Card = () => {
           <p className=" text-sm">Created Order</p>
         </div>
         <div className=" shadow rounded w-40 lg:w-80 lg:h-32 h-28 text-center py-5">
-          <h1 className=" text-[#0BCE83] text-4xl font-bold">0</h1>
-          <p className=" text-sm">Accepted Order</p>
+          <h1 className=" text-[#0BCE83] text-4xl font-bold">
+            {deliveredOrders}
+          </h1>
+          <p className=" text-sm">Delivered Order</p>
         </div>
         <div className=" shadow rounded w-40 lg:w-80 lg:h-32 h-28 text-center me-5 py-5 ">
           <h1 className=" text-[#001B87] text-4xl font-bold">
@@ -56,7 +65,9 @@ const Card = () => {
           <p className="px-2 border font-semibold ">ReceiverPhone</p>
           <p className="px-2 border font-semibold">Actions</p>
         </div>
-        {orders.length > 0
+        {isGettingOrders
+          ? "Getting orders....."
+          : orders.length > 0
           ? orders.map((order) => (
               <div key={order._id} className="space-y-4">
                 <Order order={order} />

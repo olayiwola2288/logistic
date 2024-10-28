@@ -17,8 +17,9 @@ const Order = ({ order }) => {
     } catch (err) {
       console.log(err);
       alert("Failed to confirm order");
+      window.location.href = "/user/dashboard";
     } finally {
-      setIsConfirming(false); // Reset isConfirming after operation completes
+      setIsConfirming(false);
     }
   };
 

@@ -36,6 +36,7 @@ const ShowOrder = () => {
       // value.name = value.pickUpItem;
       const result = await axiosInstance.post("orders/", value);
       console.log(result);
+window.location.href = '/user/dashboard'
     },
   });
   const [openModal, setOpenModal] = useState(false);

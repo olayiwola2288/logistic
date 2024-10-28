@@ -7,16 +7,20 @@ const Card = () => {
   const [orders, setOrders] = useState([]);
   const [deliveredOrders, setDeliveredOrders] = useState([]);
   const [acceptedOrders, setAcceptedOrders] = useState([]);
+  const [isGettingOrders, setIsGettingOrders] = useState(false);
   useEffect(() => {
+    setIsGettingOrders(true);
     axiosInstance
       .get("/orders/my-orders")
       .then((response) => {
         console.log(response.data);
         // orders = [response.data]
         setOrders(response.data.data);
+        setIsGettingOrders(false);
       })
       .catch((error) => {
         console.error(error);
+        setIsGettingOrders(false);
       });
   }, []);
 
@@ -25,8 +29,9 @@ const Card = () => {
       orders.filter((order) => order.delivered === true).length
     );
     setAcceptedOrders(
-      orders.filter((order) => order.delivered === true && order.received === true)
-        .length
+      orders.filter(
+        (order) => order.delivered === true && order.received === true
+      ).length
     );
   }, [orders]);
 
@@ -48,7 +53,7 @@ const Card = () => {
         </div>
         <div className=" shadow rounded w-40 lg:w-80 lg:h-32 h-28 text-center me-5 py-5 ">
           <h1 className=" text-[#001B87] text-4xl font-bold">
-            {acceptedOrders   }
+            {acceptedOrders}
           </h1>
           <p className=" text-sm">Completed Order</p>
         </div>
@@ -62,7 +67,9 @@ const Card = () => {
           <p className="px-2 border font-semibold ">ReceiverPhone</p>
           <p className="px-2 border font-semibold">Actions</p>
         </div>
-        {orders.length > 0
+        {isGettingOrders
+          ? "Getting orders....."
+          : orders.length > 0
           ? orders.map((order) => (
               <div key={order._id} className="space-y-4">
                 <Order order={order} />

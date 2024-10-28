@@ -30,21 +30,35 @@ const SignIn = () => {
       }
       return errors;
     },
-    onSubmit: async (values) => {
+    onSubmit: (values) => {
       setIsLogIn(true);
-      const result = await axiosInstance
+      axiosInstance
         .post("/users/signin", values)
-        .catch((err) => alert(err.message || "Invalid Email or Password"));
-
-      if (result.status === 200) {
-        formik.resetForm();
-        setIsLogIn(false);
-        navigate("/dashboard");
-        localStorage.setItem("token", result.data.token);
-      } else {
-        alert("Invalid email or password");
-        setIsLogIn(false);
-      }
+        .then((result) => {
+          if (result.status === 200) {
+            formik.resetForm();
+            setIsLogIn(false);
+            localStorage.setItem("token", result.data.token);
+            console.log(result);
+            const userRole = result.data.user.role;
+            if (userRole === "user") {
+              navigate("/user/dashboard");
+            } else if (userRole === "dispatch") {
+              navigate("/dispatch/dashboard");
+            } else if (userRole === "admin") {
+              navigate("/admin/dashboard");
+            } else {
+              alert("Role not recognized.");
+            }
+          } else {
+            alert("Invalid email or password");
+            setIsLogIn(false);
+          }
+        })
+        .catch((err) => {
+          alert(err.message || "Invalid Email or Password");
+          setIsLogIn(false);
+        });
     },
   });
   // const handleForgetPassword = () => {

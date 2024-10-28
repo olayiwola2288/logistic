@@ -3,27 +3,31 @@ import { useState, useEffect } from "react";
 import img1 from "../../public/logo-removebg-preview.png";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 import { FiAlignJustify } from "react-icons/fi";
-import { ImUserPlus, ImUser } from "react-icons/im";
+import { ImUser } from "react-icons/im";
 import { FaWallet } from "react-icons/fa";
-import { ImBubble2 } from "react-icons/im";
-import { CgMediaLive } from "react-icons/cg";
-import { CiDeliveryTruck } from "react-icons/ci";
+import { FaRegAddressBook } from "react-icons/fa";
+import { MdOutlineBrowserUpdated } from "react-icons/md";
+
 import Card from "./Card";
 import axiosInstance from "../../axiosInstance";
+import ManageUsers from "./ManageUsers";
+import Profile from "./Profile";
 
-const Dispatch = () => {
-  const [visible, setVisible] = useState(true);
-
-    useEffect(() => {
-      axiosInstance
-        .get("users/me")
-        .then((result) => {
-          console.log(result);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    });
+const Admin = () => {
+  // const [addUserVisible, setAddUserVisible] = useState(false);
+  const [visible, setVisible] = useState(null);
+  const [visiblePage, setVisiblePage] = useState(false);
+  // const [visibleProfile, setVisibleProfile] = useState(false);
+  useEffect(() => {
+    axiosInstance
+      .get("users/me")
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
   useEffect(() => {
     const screenWidth = window.innerWidth;
     if (screenWidth < 1024) {
@@ -73,71 +77,57 @@ const Dispatch = () => {
                   href="#"
                   className=" text-white hover:text-green-700"
                 >
-                  <div className=" flex gap-5 my-4">
+                  <button
+                    onClick={() => setVisiblePage("add-user")}
+                    className=" flex gap-5 my-4"
+                  >
                     <p className=" text-3xl">
                       {" "}
-                      <CiDeliveryTruck />
+                      <FaRegAddressBook />
                     </p>
-                    <p> Order </p>
-                  </div>
+                    <p> Add User </p>
+                  </button>
                 </Sidebar.Item>
 
                 <Sidebar.Item
                   href="#"
                   className=" text-white hover:text-green-700"
                 >
-                  <div className=" flex gap-5 my-4">
+                  <button
+                    onClick={() => setVisiblePage("manage-users")}
+                    className=" flex gap-5 my-4"
+                  >
                     <p className=" text-2xl">
-                      <ImBubble2 />
+                      <MdOutlineBrowserUpdated />
                     </p>
-                    <p> Chat </p>
-                  </div>
+                    <p> Manage users </p>
+                  </button>
                 </Sidebar.Item>
 
                 <Sidebar.Item
                   href="#"
                   className="text-white hover:text-green-700"
                 >
-                  <div className=" flex gap-5 my-4">
-                    <p className=" text-2xl">
-                      <CgMediaLive />
-                    </p>
-                    <p>Pricing </p>
-                  </div>
-                </Sidebar.Item>
-                <Sidebar.Item
-                  href="#"
-                  className="text-white hover:text-green-700"
-                >
-                  <div className=" flex gap-5 my-4 ">
+                  <button
+                    onClick={() => setVisiblePage("order-list")}
+                    className=" flex gap-5 my-4 "
+                  >
                     <p className=" text-2xl">
                       <FaWallet />
                     </p>
-                    <p> Wallet </p>
-                  </div>
+                    <p> Check order list </p>
+                  </button>
                 </Sidebar.Item>
                 <Sidebar.Item
                   href="#"
                   className="text-white hover:text-green-700"
                 >
-                  <div className=" flex gap-5 my-4">
-                    <p className=" text-2xl">
-                      <ImUserPlus />
-                    </p>
-                    <p> Referral </p>
-                  </div>
-                </Sidebar.Item>
-
-                <Sidebar.Item
-                  href="#"
-                  className="text-white hover:text-green-700"
-                >
-                  <div className=" flex gap-5 my-4">
+                  <button onClick={() => setVisiblePage("Profile")} className=" flex gap-5 my-4">
                     <p className=" text-2xl">
                       <ImUser />
                     </p>
                     <p> Profile</p>
-                  </div>
+                  </button>
                 </Sidebar.Item>
 
                 <Sidebar.Item
@@ -154,9 +144,14 @@ const Dispatch = () => {
           </div>
         </Sidebar>
       )}
-      <Card />
+
+      {visiblePage === "order-list" && <Card />}
+      {visiblePage === "manage-users" && <ManageUsers />}
+      {visiblePage === "update-user" && <div>Update User Page</div>}
+      {visiblePage === "delete-user" && <div>Delete User Page</div>}
+      {visiblePage === "Profile" && <Profile/>}
     </div>
   );
 };
 
-export default Dispatch;
+export default Admin;
