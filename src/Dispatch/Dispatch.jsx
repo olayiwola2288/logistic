@@ -4,10 +4,10 @@ import img1 from "../../public/logo-removebg-preview.png";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 import { FiAlignJustify } from "react-icons/fi";
 import { ImUserPlus, ImUser } from "react-icons/im";
-import { FaWallet } from "react-icons/fa";
-import { ImBubble2 } from "react-icons/im";
-import { CgMediaLive } from "react-icons/cg";
-import { CiDeliveryTruck } from "react-icons/ci";
+// import { FaWallet } from "react-icons/fa";
+// import { ImBubble2 } from "react-icons/im";
+// import { CgMediaLive } from "react-icons/cg";
+// import { CiDeliveryTruck } from "react-icons/ci";
 import Card from "./Card";
 import axiosInstance from "../../axiosInstance";
 
@@ -69,7 +69,7 @@ const Dispatch = () => {
             <Sidebar.Items className="">
               <Sidebar.ItemGroup className=" ">
                 <img src={img1} alt="" className=" hidden lg:block" />
-                <Sidebar.Item
+                 {/* <Sidebar.Item
                   href="#"
                   className=" text-white hover:text-green-700"
                 >
@@ -126,11 +126,11 @@ const Dispatch = () => {
                     </p>
                     <p> Referral </p>
                   </div>
-                </Sidebar.Item>
+                </Sidebar.Item> */}
 
                 <Sidebar.Item
                   href="#"
-                  className="text-white hover:text-green-700"
+                  className="text-white hover:text-green-700 mt-28"
                 >
                   <div className=" flex gap-5 my-4">
                     <p className=" text-2xl">
@@ -138,7 +138,7 @@ const Dispatch = () => {
                     </p>
                     <p> Profile</p>
                   </div>
-                </Sidebar.Item>
+                </Sidebar.Item> 
 
                 <Sidebar.Item
                   href="https://logistic-azure.vercel.app/"
