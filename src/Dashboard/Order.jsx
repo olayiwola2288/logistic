@@ -21,6 +21,7 @@ const Order = ({ order }) => {
     } finally {
       setIsConfirming(false);
     }
+    window.location.reload();
   };
 
   const handleDelete = async () => {
@@ -34,8 +35,9 @@ const Order = ({ order }) => {
       console.log(err);
       alert("Failed to delete order");
     } finally {
-      setIsDelete(false); // Reset isDelete after operation completes
+      setIsDelete(false); 
     }
+window.location.reload();
   };
 
   return (

@@ -4,6 +4,8 @@ import axiosInstance from "../../axiosInstance";
 import { useFormik } from "formik";
 import * as yup from "yup";
 const ShowOrder = () => {
+  const [isCreate, setIsCreate] = useState(false);
+
   const formik = useFormik({
     initialValues: {
       senderName: "",
@@ -32,10 +34,21 @@ const ShowOrder = () => {
     }),
 
     onSubmit: async (value) => {
+      setIsCreate(true);
       console.log(value);
       // value.name = value.pickUpItem;
-      const result = await axiosInstance.post("orders/", value);
-      console.log(result);
+      const result = await axiosInstance.post("orders/", value).catch((err) => {
+        console.log(err);
+        alert("Failed to Create Order");
+        setIsCreate(false);
+      });
+      if (result.status === 201) {
+        alert("order Created Successfully");
+        setIsCreate(false);
+      } else {
+        alert("Failed to Create order");
+        setIsCreate(false);
+      }
 window.location.href = '/user/dashboard'
     },
   });
@@ -286,8 +299,8 @@ window.location.href = '/user/dashboard'
                 </div>
               </div>
               <div className=" flex justify-end">
-                <Button type="submit" className=" bg-green-800 ">
-                  <small>Add</small>
+                <Button type="submit" className=" bg-green-800 " disabled={isCreate}>
+                {isCreate ? "Creating....." : "Create"}
                 </Button>
               </div>
               <div className=" flex justify-center">

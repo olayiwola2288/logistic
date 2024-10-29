@@ -19,16 +19,21 @@ const ShowOrder = () => {
     },
     validationSchema: yup.object({
       senderName: yup.string().required("Full Name of the sender is required"),
-      senderAddress:yup.string().required("Address of the sender is required"),
-      senderPhone:yup.string().required("Phone number of  the sender is required"),
-      pickUpItem:yup.string().required(" Name item is required"),
-      itemWeight:yup.string().required("Put the weight item "),
-      deliveryMode:yup.string().required("Choose a delivery mode"),
-      receiverName:yup.string().required("Name of the receiver is required"),
-      receiverAddress:yup.string().required("Address of the receiver is required"),
-      receiverPhone:yup.string().required("Phone number of  the receiver is required"),
-      deliveryType:yup.string().required("Choose a delivery type"),
-
+      senderAddress: yup.string().required("Address of the sender is required"),
+      senderPhone: yup
+        .string()
+        .required("Phone number of  the sender is required"),
+      pickUpItem: yup.string().required(" Name item is required"),
+      itemWeight: yup.string().required("Put the weight item "),
+      deliveryMode: yup.string().required("Choose a delivery mode"),
+      receiverName: yup.string().required("Name of the receiver is required"),
+      receiverAddress: yup
+        .string()
+        .required("Address of the receiver is required"),
+      receiverPhone: yup
+        .string()
+        .required("Phone number of  the receiver is required"),
+      deliveryType: yup.string().required("Choose a delivery type"),
     }),
 
     onSubmit: async (value) => {
@@ -285,8 +290,12 @@ const ShowOrder = () => {
                 </div>
               </div>
               <div className=" flex justify-end">
-                <Button type="submit" className=" bg-green-800 ">
-                  <small>Add</small>
+                <Button
+                  type="submit"
+                  className=" bg-green-800 "
+                  
+                >
+                  
                 </Button>
               </div>
               <div className=" flex justify-center">
