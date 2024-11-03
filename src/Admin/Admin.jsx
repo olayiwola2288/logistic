@@ -11,7 +11,7 @@ import { MdOutlineBrowserUpdated } from "react-icons/md";
 import Card from "./Card";
 import axiosInstance from "../../axiosInstance";
 import ManageUsers from "./ManageUsers";
-// import Profile from "./Profile";
+import Profile from "./Profile";
 
 const Admin = () => {
   // const [addUserVisible, setAddUserVisible] = useState(false);
@@ -149,7 +149,7 @@ const Admin = () => {
       {visiblePage === "manage-users" && <ManageUsers />}
       {visiblePage === "update-user" && <div>Update User Page</div>}
       {visiblePage === "delete-user" && <div>Delete User Page</div>}
-      {/* {visiblePage === "Profile" && <Profile/>} */}
+      {visiblePage === "Profile" && <Profile/>}
     </div>
   );
 };
