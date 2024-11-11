@@ -28,7 +28,6 @@ const Form = () => {
 
   const [allOrder, setallOrder] = useState([])
   const create=()=>{
-    // let order={pickName,pickAddress,pickNumber,weight,item,mode,dropName,dropAddress,dropNumber,location,city,country,postalCode,note }
     setallOrder([...allOrder])
     setpickName("");
     setpickAddress("");

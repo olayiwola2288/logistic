@@ -25,7 +25,11 @@ const Profile = () => {
   }
 
   if (!userData) {
-    return <div>Loading...</div>;
+    return <div>
+    <div className="flex items-center justify-center h-screen" disabled>
+      <div className="animate-spin h-40 w-40 border-t-4 border-green-900 rounded-full"></div>
+    </div>
+  </div>;
   }
 
   return (
@@ -35,6 +39,7 @@ const Profile = () => {
       <p>Last Name: {userData.lastName}</p>
       <p>Email: {userData.email}</p>
       <p>Role: {userData.role}</p>
+      <p>id_number: {userData._id}</p>
     </div>
   );
 };

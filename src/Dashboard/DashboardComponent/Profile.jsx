@@ -9,7 +9,6 @@ const Profile = () => {
     const fetchProfile = async () => {
       try {
         const result = await axiosInstance.get("users/me");
-        console.log(result);
         setUserData(result.data.data);
       } catch (err) {
         console.log(err);

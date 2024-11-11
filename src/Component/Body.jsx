@@ -16,10 +16,9 @@ const Body = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading delay (you can replace this with your actual data loading logic)
     setTimeout(() => {
       setLoading(false);
-    }, 2000); // 2000 milliseconds (2 seconds) for demonstration purposes
+    }, 2000);
   }, []);
 
   return (

@@ -1,5 +1,4 @@
 import { Navbar, Button } from "flowbite-react";
-// import { Link } from "react-router-dom";
 import img1 from "../assets/Viscio/logo.jpg";
 import { useNavigate } from "react-router-dom";
 
@@ -52,7 +51,7 @@ const Head = () => {
             Order
           </Navbar.Link>
           <Navbar.Link
-           onClick={() => handleNavigation1()}
+            onClick={() => handleNavigate()}
             className="text-black hover:text-black lg:hover:text-green-800 font-bold"
           >
             Price Checker

@@ -1,4 +1,3 @@
-// import style from "../Component/About";
 import image1 from "../assets/image12.jpg";
 import image2 from "../assets/image13.jpg";
 import image3 from "../assets/image15.jpeg";
@@ -6,7 +5,6 @@ import image4 from "../assets/image16.jpeg";
 import image5 from "../assets/image10.jpeg";
 import image6 from "../assets/image17.webp";
 import image7 from "../assets/image18.jpeg";
-// import image8 from "../assets/image19.jpeg";
 import image9 from "../assets/image20.jpg";
 import image10 from "../assets/image22.avif";
 import image11 from "../assets/image23.jpeg";
@@ -18,10 +16,9 @@ const About = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading delay (you can replace this with your actual data loading logic)
     setTimeout(() => {
       setLoading(false);
-    }, 500); // 2000 milliseconds (2 seconds) for demonstration purposes
+    }, 500); 
   }, []);
 
   return (
