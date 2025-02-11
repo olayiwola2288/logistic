@@ -2,9 +2,12 @@ import { useFormik } from "formik";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axiosInstance from "../../../axiosInstance";
+
 const SignIn = () => {
   const navigate = useNavigate();
   const [islogIn, setIsLogIn] = useState(false);
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false); // State for password visibility
+
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -26,7 +29,7 @@ const SignIn = () => {
           values.password
         )
       ) {
-        errors.password = "not strong well";
+        errors.password = "Password must be at least 8 characters long, include one uppercase letter, one lowercase letter, one number, and one special character.";
       }
       return errors;
     },
@@ -61,9 +64,6 @@ const SignIn = () => {
         });
     },
   });
-  // const handleForgetPassword = () => {
-  //   navigate("/forget");
-  // };
 
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -71,6 +71,7 @@ const SignIn = () => {
       setLoading(false);
     }, 500);
   }, []);
+
   return (
     <div className="lg:mt-30 lg:mb-20 mb-24 my-62">
       {loading ? (
@@ -93,32 +94,37 @@ const SignIn = () => {
                   name="email"
                 />
               </div>
-              <small>{formik.errors.email}</small>
-              <div className="py-2">
+              <small className="text-red-500">{formik.errors.email}</small>
+              <div className="py-2 relative">
                 <input
-                  type="password"
+                  type={isPasswordVisible ? "text" : "password"} // Toggle input type
                   className="border border-black rounded bg-white-200 px-10 py-2"
-                  placeholder="Note:-the password most have Minimum eight characters, at least one letter, one number and one special character:
-  
-                "
+                  placeholder="Password"
                   onChange={formik.handleChange}
                   value={formik.values.password}
                   name="password"
                 />
+                {/* Eye Icon to Toggle Password Visibility */}
+                <span
+                  onClick={() => setIsPasswordVisible(!isPasswordVisible)}
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer"
+                >
+                  {isPasswordVisible ? "👁️‍🗨️" : "👁️"}
+                </span>
               </div>
-              <small>{formik.errors.password}</small>
+              <small className="text-red-500">{formik.errors.password}</small>
               <div className="py-2">
                 <button
                   type="submit"
                   className="bg-green-700 py-3 px-5 rounded text-white"
                   disabled={islogIn}
                 >
-                  {islogIn ? "log in....." : "log in"}
+                  {islogIn ? "Logging in..." : "Log in"}
                 </button>
               </div>
             </span>
             <button className="pt-2">
-              <small>Forget password </small>
+              <small>Forgot password?</small>
             </button>
           </form>
         </div>
