@@ -76,17 +76,17 @@ const Footer = () => {
               <ul className="text-white dark:text-white font-medium">
                 <li className="mb-4">
                   <a href="#" className="hover:underline">
-                    +2348085546073
+                    +2348168863456
                   </a>
                 </li>
                 <li className="mb-4">
                   <a href="#" className="hover:underline">
-                    support@visco.com.ng
+                    support@serenity.com.ng
                   </a>
                 </li>
                 <li className="mb-4">
                   <a href="#" className="hover:underline">
-                    Polystar 2nd Roundabout, Lekki Phase 1 105102, Lagos
+                    Opposite Alaka-Ola pharmacy off Ogboro road oke-suuna saki, saki west, Oyo state Nigeria.
                   </a>
                 </li>
                 <li className="mb-4">
@@ -97,7 +97,7 @@ const Footer = () => {
                 <li className="mb-4">
                   <div className="flex mt-4 space-x-5 sm:justify-center md:mt-0">
                     <a
-                      href="#"
+                      href="https://web.facebook.com/"
                       className="text-white hover:text-gray-900 dark:hover:text-white"
                     >
                       <svg
@@ -150,7 +150,7 @@ const Footer = () => {
                       <span className="sr-only">Twitter page</span>
                     </a>
                     <a
-                      href="#"
+                      href="https://github.com/"
                       className="text-white hover:text-gray-900 dark:hover:text-white"
                     >
                       <svg
