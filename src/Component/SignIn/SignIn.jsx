@@ -6,7 +6,7 @@ import axiosInstance from "../../../axiosInstance";
 const SignIn = () => {
   const navigate = useNavigate();
   const [islogIn, setIsLogIn] = useState(false);
-  const [isPasswordVisible, setIsPasswordVisible] = useState(false); // State for password visibility
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   const formik = useFormik({
     initialValues: {
@@ -97,14 +97,13 @@ const SignIn = () => {
               <small className="text-red-500">{formik.errors.email}</small>
               <div className="py-2 relative">
                 <input
-                  type={isPasswordVisible ? "text" : "password"} // Toggle input type
+                  type={isPasswordVisible ? "text" : "password"} 
                   className="border border-black rounded bg-white-200 px-10 py-2"
                   placeholder="Password"
                   onChange={formik.handleChange}
                   value={formik.values.password}
                   name="password"
                 />
-                {/* Eye Icon to Toggle Password Visibility */}
                 <span
                   onClick={() => setIsPasswordVisible(!isPasswordVisible)}
                   className="absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer"

@@ -26,17 +26,17 @@ const Footer = () => {
               </h2>
               <ul className="text-white dark:text-white font-medium">
                 <li className="mb-4">
-                  <a href="#" className="hover:underline">
+                  <a href="https://logistic-azure.vercel.app/" className="hover:underline">
                     Home
                   </a>
                 </li>
                 <li className="mb-4">
-                  <a href="#" className="hover:underline">
+                  <a href="https://logistic-azure.vercel.app/about" className="hover:underline">
                     About Us
                   </a>
                 </li>
                 <li className="mb-4">
-                  <a href="#" className="hover:underline">
+                  <a href="https://logistic-azure.vercel.app/contact" className="hover:underline">
                     Contact Us
                   </a>
                 </li>
